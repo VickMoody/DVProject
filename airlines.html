@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>USA Airlines Visualizer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/stylesheet.css" />
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="scripts/d3.geo.js"></script>
+    <script type="text/javascript" src="scripts/d3.geom.js"></script>
+    <script type="text/javascript" src="scripts/script.js"></script>
+    <script type="text/javascript" src="scripts/airlinesview.js"></script>
+</head>
+
+<body onload="drawBars(); drawPieChart('overview'); drawDelayBars('overview');">
+    <div class="jumbotron text-center" id="head-div">
+        <h2>USA Flights Visualizer</h2>
+    </div>
+    <div class="container-fluid" id="mainairlines">
+        <div class="row" id="tabs">
+            <div class="col-sm-4">
+                <button type="button" value="map" class="btn" onclick="changeView(this);">Map Visualization</button>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" value="airline" class="btn active" onclick="changeView(this);">Airline Visualization</button>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" value="airport" class="btn" onclick="changeView(this);">Airport Visualization</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <p class="sectionhead" style="margin-left:-15px; margin-right: 0">Filters </p>
+                <div class="row commonselection">
+                    <select id="route-from" class=" js-example-basic-multiple">
+                        <option value="" selected disabled hidden>empty</option>
+                    </select>
+                </div>
+                <div class="row commonselection1">
+                    <select id="route-to" class=" js-example-basic-multiple">
+                        <option value="" selected disabled hidden>empty</option>
+                    </select>
+                </div>
+                <button id="findbtn" class="row btn commonbtn" type="button" onclick="RenderBars(); drawPieChart('route'); drawDelayBars('route');">Find route</button>
+            </div>
+            <div class="col-sm-6" id="barsdiv">
+                <p class="sectionhead">Airlines Delays</p>
+                <svg width="750" height="500"></svg>
+            </div>
+            <div class="col-sm-4" id="rightpanel">
+                <div class="row" id="delaybars">
+                    <p class="sectionhead">Delay Reasons</p>
+                </div>
+                <div class="row" id="piechart">
+                    <p class="sectionhead">Cancellation Reasons</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

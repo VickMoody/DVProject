@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>USA Airports Visualizer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/stylesheet.css" />
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="scripts/d3.geo.js"></script>
+    <script type="text/javascript" src="scripts/d3.geom.js"></script>
+    <script type="text/javascript" src="scripts/script.js"></script>
+    <script type="text/javascript" src="scripts/airportsview.js"></script>
+</head>
+
+<body onload="drawLineChart();">
+    <div class="jumbotron text-center" id="head-div">
+        <h2>USA Flights Visualizer</h2>
+    </div>
+    <div class="container-fluid" id="mainairports">
+        <div class="row" id="tabs">
+            <div class="col-sm-4">
+                <button type="button" value="map" class="btn" onclick="changeView(this);">Map Visualization</button>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" value="airline" class="btn" onclick="changeView(this);">Airline Visualization</button>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" value="aiport" class="btn active" onclick="changeView(this);">Airport Visualization</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 commonselection">
+                <select id="airport-select" class=" js-example-basic-multiple" multiple="multiple" onchange="return Refresh();">
+                </select>
+                <select id="what" class="commonselection1 js-example-basic-multiple" onchange="return Refresh();">
+                    <option value="delays">Whole Period</option>
+                    <option value="delay_month">by month</option>
+                    <option value="delays_week">by day of week</option>
+                    <option value="delay_day">by time of day</option>
+                </select>
+            </div>
+            <div class="col-sm-10" id="arr-delays">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+            </div>
+            <div id="dep-delays" class="col-sm-10">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

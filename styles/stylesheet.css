@@ -1,0 +1,641 @@
+html,
+body {
+    font-family: "Josefin Sans", "Lucida Console", sans-serif;
+}
+
+.plot {
+    fill: #fff;
+}
+
+.toolTip {
+    position: absolute;
+    display: none;
+    min-width: 80px;
+    height: auto;
+    background: none repeat scroll 0 0 #333;
+    opacity: 0.8;
+    color: #fff;
+    border-radius: 0;
+    border: 1px solid #6F257F;
+    padding: 14px;
+    text-align: center;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    /*stroke: #AFBABF;*/
+    shape-rendering: crispEdges;
+}
+
+.axis .domain {
+    display: none;
+}
+
+.axis text,
+.fraction text {
+    font-family: "Josefin Sans";
+    font-size: 14px;
+    font-weight: bold;
+    /*fill: #AFBABF;*/
+}
+
+#barlegend {
+    font-family: "Josefin Sans";
+}
+
+.x.axis path {
+    display: none;
+}
+
+.y.axis path {
+    display: none;
+}
+
+.line {
+    fill: none;
+    stroke: #ccc;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-width: 1px;
+}
+
+.average {
+    fill: none;
+    stroke: #fc393e;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-width: 3px;
+}
+
+.line:hover {
+    fill: none;
+    stroke: #1f4b8e;
+    stroke-width: 2px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.hed {
+    font-family: SourceSansPro-Bold;
+    font-size: 24pt;
+    margin-bottom: 5px;
+    margin-top: 0px;
+}
+
+.dek {
+    font-family: SourceSansPro-Light;
+    font-size: 12pt;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.menuchoice {
+    font-family: SourceSansPro-Light;
+    font-size: 10pt;
+    margin-bottom: 0px;
+    fill: #231F20;
+}
+
+.legend {
+    font-family: SourceSansPro-Light;
+    font-size: 10pt;
+    margin-bottom: 0px;
+    fill: #231F20;
+}
+
+.legend-off {
+    font-family: SourceSansPro-Light;
+    font-size: 10pt;
+    margin-bottom: 0px;
+    fill: #231F20;
+}
+
+.legend-select {
+    font-family: SourceSansPro-Bold;
+    font-size: 10pt;
+    margin-bottom: 0px;
+    fill: #231F20;
+}
+
+.tip1 {
+    font-family: SourceSansPro-Bold;
+    font-size: 14pt;
+    text-align: center;
+    margin-bottom: -12px;
+    margin-top: 0px;
+}
+
+.tip2 {
+    font-family: SourceSansPro-ExtraLight;
+    font-size: 10pt;
+    text-align: center;
+    margin-bottom: -12px;
+}
+
+.tip3 {
+    font-family: SourceSansPro-ExtraLight;
+    font-size: 10pt;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.tipsy {
+    font-family: "Source Sans Pro";
+    font-size: 10px;
+    position: absolute;
+    padding: 5px;
+    z-index: 100000;
+}
+
+.tipsy-inner {
+    background-color: #000;
+    color: #FFF;
+    max-width: 200px;
+    padding: 0;
+    text-align: left;
+    padding: 10px;
+}
+
+
+.tipsy-inner {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Uncomment for shadow */
+
+
+/*.tipsy-inner { box-shadow: 0 0 5px #000000; -webkit-box-shadow: 0 0 5px #000000; -moz-box-shadow: 0 0 5px #000000; }*/
+
+.tipsy-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: 5px dashed #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Rules to colour arrows */
+
+.tipsy-arrow-n {
+    border-bottom-color: #000;
+}
+
+.tipsy-arrow-s {
+    border-top-color: #000;
+}
+
+.tipsy-arrow-e {
+    border-left-color: #FFF;
+}
+
+.tipsy-arrow-w {
+    border-right-color: #000;
+}
+
+.tipsy-n .tipsy-arrow {
+    top: 0px;
+    left: 50%;
+    margin-left: -5px;
+    border-bottom-style: solid;
+    border-top: none;
+    border-left-color: transparent;
+    border-right-color: transparent;
+}
+
+.tipsy-nw .tipsy-arrow {
+    top: 0;
+    left: 10px;
+    border-bottom-style: solid;
+    border-top: none;
+    border-left-color: transparent;
+    border-right-color: transparent;
+}
+
+.tipsy-ne .tipsy-arrow {
+    top: 0;
+    right: 10px;
+    border-bottom-style: solid;
+    border-top: none;
+    border-left-color: transparent;
+    border-right-color: transparent;
+}
+
+.tipsy-s .tipsy-arrow {
+    bottom: 0;
+    left: 50%;
+    margin-left: -5px;
+    border-top-style: solid;
+    border-bottom: none;
+    border-left-color: transparent;
+    border-right-color: transparent;
+}
+
+.tipsy-sw .tipsy-arrow {
+    bottom: 0;
+    left: 10px;
+    border-top-style: solid;
+    border-bottom: none;
+    border-left-color: transparent;
+    border-right-color: transparent;
+}
+
+.tipsy-se .tipsy-arrow {
+    bottom: 0;
+    right: 10px;
+    border-top-style: solid;
+    border-bottom: none;
+    border-left-color: transparent;
+    border-right-color: transparent;
+}
+
+.tipsy-e .tipsy-arrow {
+    right: 0;
+    top: 50%;
+    margin-top: -5px;
+    border-left-style: solid;
+    border-right: none;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.tipsy-w .tipsy-arrow {
+    left: 0;
+    top: 50%;
+    margin-top: -5px;
+    border-right-style: solid;
+    border-left: none;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+}
+
+
+.gravity {
+    width: 100%;
+    margin: 5px 0;
+    border-spacing: 5px;
+}
+
+.gravity td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px 0;
+    background-color: #d0d0d0;
+    width: 33%;
+}
+
+.gravity a {}
+
+.gravity a:hover {
+    color: #505050;
+    background: none;
+}
+
+
+.normalpath {
+    fill: #f9f7f6;
+    stroke: #fff;
+}
+
+.selectedpath {
+    fill: red;
+    stroke: #fff;
+}
+
+path.arc {
+    pointer-events: none;
+    fill: none;
+    /*stroke: #000;*/
+    display: none;
+    stroke-dasharray: 1000px;
+    stroke-dashoffset: 1000px;
+    animation: dash 1s ease-in forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+path.cell {
+    fill: none;
+    pointer-events: all;
+}
+
+circle {
+    fill: none;
+    /*fill-opacity: 1;*/
+    stroke: #333;
+}
+
+#cells.voronoi path.cell {
+    stroke: brown;
+}
+
+#cells g:hover path.arc {
+    display: inherit;
+}
+
+
+.hiddenline {
+    fill: none;
+    stroke: none;
+    stroke-width: 0px;
+    opacity: 0;
+}
+
+.unhovered {
+    fill: none;
+    stroke: lightgray;
+    stroke-width: 0.5px;
+    opacity: 0.7;
+}
+
+.hovered {
+    fill: none;
+    stroke: blue;
+    stroke-width: 4px;
+    opacity: 1;
+}
+
+.selected0 {
+    fill: none;
+    stroke: #b0d8de;
+    stroke-width: 2px;
+    opacity: 1;
+}
+
+.selected1 {
+    fill: none;
+    stroke: #865847;
+    stroke-width: 2px;
+    opacity: 1;
+}
+
+.selected2 {
+    fill: none;
+    stroke: #d88e6c;
+    stroke-width: 2px;
+    opacity: 1;
+}
+
+.selected3 {
+    fill: none;
+    stroke: #9aba36;
+    stroke-width: 2px;
+    opacity: 1;
+}
+
+
+.commonttip {
+    position: absolute;
+    width: 250px;
+    height: auto;
+    background-color: #333;
+    color: #fff;
+    opacity: 0.8;
+    border-radius: 0;
+    border: 1px solid #6F257F;
+    padding: 20px;
+    text-align: center;
+    /*pointer-events: none;*/
+}
+
+.commonttip.hidden {
+    display: none;
+}
+
+.commonttip p {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+div {
+    display: block;
+}
+
+.jumbotron {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f7f6;
+}
+
+.select2.select2-container {
+    width: 90%!important;
+}
+
+#selection-box .select2-container {
+    margin: 2%!important;
+}
+
+#mapdiv {
+    padding: 0;
+}
+
+.fraction text {
+    text-anchor: middle;
+}
+
+.fraction:hover {
+    transform: scale(1.1);
+}
+
+#tabs div {
+    padding: 0;
+}
+
+#tabs .btn {
+    width: 100%;
+    border-radius: 0;
+    background-color: #f9f7f6;
+    transition: all 0.5s ease-in;
+}
+
+#tabs .btn:hover,
+#tabs .btn.active {
+    background-color: #bab9b6;
+    color: #fff;
+}
+
+#tabs .btn:active {
+    background-color: #bab9b6;
+    color: #fff;
+}
+
+.btn.commonbtn {
+    position: absolute;
+    width: 90%;
+    background-color: #333333;
+    color: #fff;
+    border-radius: 0;
+    padding: 5px 10px;
+}
+
+#mapdiv .btn.active,
+#mapdiv .btn:hover {
+    width: 230px!important;
+}
+
+#busybtn {
+    margin-top: 50px;
+    width: 206px!important;
+    transition: width 0.2s linear;
+}
+
+#delayedbtn {
+    margin-top: 120px;
+    width: 206px!important;
+    transition: width 0.2s linear;
+}
+
+.commonselection {
+    margin-top: 50px!important;
+    padding-left: 0;
+}
+
+.commonselection1 {
+    margin-top: 40px!important;
+}
+
+#findbtn {
+    margin-top: 40px;
+}
+
+.select2-selection {
+    border-radius: 0!important;
+    background-color: #333333!important;
+    color: #fff !important;
+}
+
+.select2-selection__placeholder,
+.select2-selection__rendered,
+.select2-search__field {
+    color: #fff!important;
+}
+
+.select2-selection__choice {
+    color: #333;
+    margin-right: 2px !important;
+    margin-left: 2px !important;
+}
+
+#what {
+    width: 90%!important;
+    background-color: #333;
+    color: #fff;
+    margin-left: 0px!important;
+    margin-right: 0px!important;
+    border: 1px solid #aaa;
+    padding: 6px 8px 6px 20px;
+}
+
+#what+span {
+    margin-top: 40px!important;
+}
+
+#barsdiv {
+    padding: 0;
+}
+
+.axis--x path {
+    display: none;
+}
+
+#yAxis .tick text,
+#xAxis .tick text,
+#palette text {
+    font-family: "Josefin Sans";
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#barchart {
+    padding-top: 10px;
+}
+
+.sectionhead {
+    margin: 0;
+    background-color: #49616d;
+    color: #fff;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.close {
+    position: absolute;
+    right: 16px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    opacity: 0.6;
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+.close:before,
+.close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 20px;
+    width: 2px;
+    background-color: white;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+#donutdiv {
+    position: absolute;
+    right: 0;
+}
+
+.toolCircle {
+    text-anchor: middle;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 26px;
+    color: #FF0800!important;
+}
+#legend-div{
+    position: absolute;
+    top:300px;
+}
